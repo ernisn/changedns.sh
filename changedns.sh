@@ -52,6 +52,7 @@ CheckIP(){
 
 # 修改 DNS
 DoChange(){
+	mv /etc/resolv.conf /etc/resolv.conf.bak
 	echo "nameserver "$nameserver"" > /etc/resolv.conf
 	echo "nameserver "$nameserver"" > /etc/resolvconf/resolv.conf.d/head
 	systemctl restart resolvconf.service
@@ -80,6 +81,7 @@ ChangeDNS(){
 	fi
 	echo "已修改，当前 Nameserver 如下："
 	cat /etc/resolv.conf | grep nameserver
+	echo "旧 resolv.conf 已备份至 /etc/resolv.conf.bak"
 }
 
 ChangeDNS
