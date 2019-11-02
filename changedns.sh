@@ -26,7 +26,7 @@ CheckSystem(){
 
 # 安装 resolvconf
 CheckRequirement(){
-	if  [ ! -e '/usr/sbin/resolvconf' ]; then
+	if  [ ! -e '/usr/sbin/resolvconf' ] && [ ! -e '/sbin/resolvconf' ]; then
 		echo "正在安装必要的程序 resolvconf ，请稍后..."
 		if [ "${release}" == "centos" ]; then
 			yum -y install resolvconf > /dev/null 2>&1
