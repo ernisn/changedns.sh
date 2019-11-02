@@ -31,7 +31,7 @@ CheckRequirement(){
 		if [ "${release}" == "centos" ]; then
 			yum -y install resolvconf > /dev/null 2>&1
 		else
-			apt-get update > /dev/null 2>&1
+			apt-get update
 			apt-get -y install resolvconf > /dev/null 2>&1
 		fi
 	fi
